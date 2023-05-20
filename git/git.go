@@ -48,6 +48,12 @@ func CommitAll(path string, message string) error {
 		return err
 	}
 
+	err = Exec(path, "pull")
+	if err != nil {
+		fmt.Println("error: Could not pull from repo")
+		return err
+	}
+
 	err = Exec(path, "commit", "-m", fmt.Sprintf("\"%s\"", message))
 	return err
 }
