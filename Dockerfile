@@ -25,6 +25,8 @@ RUN apt-get update && apt install -y git git-lfs
 COPY --from=download /pocketbase /usr/local/bin/pocketbase
 COPY --from=build /go/bin/app /usr/local/bin/app
 
+EXPOSE 8090
+
 RUN mkdir -p /root/pocketbase
 
 ENTRYPOINT [ "app" ]
